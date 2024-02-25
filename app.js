@@ -24,10 +24,7 @@ const videoSchema = new mongoose.Schema({
 const Video = mongoose.model('Video', videoSchema);
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://umesh:umesh@youtubeshorts.3plwuct.mongodb.net/?retryWrites=true&w=majority&appName=youtubeshorts/youtube', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect('mongodb+srv://umesh:umesh@youtubeshorts.3plwuct.mongodb.net/?retryWrites=true&w=majority&appName=youtubeshorts/youtube');
 
 // GET API with pagination
 app.get('/youtube-shorts', async (req, res) => {
