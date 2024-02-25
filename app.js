@@ -1,8 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors'); // Import the cors middleware
 
 const app = express();
-const PORT = process.env.PORT || 8000;
+const PORT = 3000;
+
+// Use cors middleware
+app.use(cors());
 
 // Define MongoDB schema
 const videoSchema = new mongoose.Schema({
@@ -20,7 +24,10 @@ const videoSchema = new mongoose.Schema({
 const Video = mongoose.model('Video', videoSchema);
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://umesh:umesh@youtubeshorts.3plwuct.mongodb.net/?retryWrites=true&w=majority&appName=youtubeshorts/youtube');
+mongoose.connect('mongodb://localhost:27017/youtube', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 // GET API with pagination
 app.get('/youtube-shorts', async (req, res) => {
@@ -47,4 +54,3 @@ app.get('/youtube-shorts', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
