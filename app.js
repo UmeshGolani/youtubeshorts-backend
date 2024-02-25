@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 // Define MongoDB schema
 const videoSchema = new mongoose.Schema({
