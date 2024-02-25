@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors'); // Import the cors middleware
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 8000;
 
 // Use cors middleware
 app.use(cors());
@@ -24,7 +24,7 @@ const videoSchema = new mongoose.Schema({
 const Video = mongoose.model('Video', videoSchema);
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/youtube', {
+mongoose.connect('mongodb+srv://umesh:umesh@youtubeshorts.3plwuct.mongodb.net/?retryWrites=true&w=majority&appName=youtubeshorts/youtube', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
